@@ -34,7 +34,7 @@ jobs:
         docker push bshp/itsm:${{ env.ITSM_VERSION }}
     - name: Build Jetbrains
       run: |
-        docker build . -f jetbrains.dockerfile --pull --build-arg ITSM_VERSION=${{ env.ITSM_VERSION }} --tag bshp/itsm:latest  --progress=plain --no-cache
+        docker build . -f jetbrains.dockerfile --pull --build-arg ITSM_VERSION=${{ env.ITSM_VERSION }} --tag bshp/itsm:latest  --progress=plain --no-cache --debug
     - name: Push Jetbrains
       run: |
         docker push bshp/itsm:latest
