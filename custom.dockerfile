@@ -7,7 +7,8 @@ ARG ITSM_VERSION
 FROM bshp/ocie:${OCIE_VERSION}
     
 ARG ITSM_VERSION
-    
+ARG OCIE_VERSION
+
 ENV OCIE_CONFIG=/etc/youtrack \
     APP_ENV="prod" \
     APP_TYPE="itsm" \
