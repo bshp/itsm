@@ -26,12 +26,12 @@ jobs:
     - name: Set Version
       run: |
         echo "ITSM_VERSION=$(wget --quiet --no-cookies https://hub.docker.com/v2/namespaces/jetbrains/repositories/youtrack/tags?page_size=1 -O - | jq -c '.results[].name' | tr -d \")" >> $GITHUB_ENV
-    - name: Build Custom
-      run: |
-        docker build . -f custom.dockerfile --pull --build-arg OCIE_VERSION=${{ env.OCIE_VERSION }} --build-arg ITSM_VERSION=${{ env.ITSM_VERSION }} --tag bshp/itsm:${{ env.ITSM_VERSION }} --progress=plain --no-cache
-    - name: Push Custom
-      run: |
-        docker push bshp/itsm:${{ env.ITSM_VERSION }}
+   # - name: Build Custom
+   #   run: |
+   #     docker build . -f custom.dockerfile --pull --build-arg OCIE_VERSION=${{ env.OCIE_VERSION }} --build-arg ITSM_VERSION=${{ env.ITSM_VERSION }} --tag bshp/itsm:${{ env.ITSM_VERSION }} --progress=plain --no-cache
+   # - name: Push Custom
+   #   run: |
+   #     docker push bshp/itsm:${{ env.ITSM_VERSION }}
     - name: Build Jetbrains
       run: |
         docker build . -f jetbrains.dockerfile --pull --build-arg ITSM_VERSION=${{ env.ITSM_VERSION }} --tag bshp/itsm:latest  --progress=plain --no-cache --debug
